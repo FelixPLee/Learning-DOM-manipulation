@@ -58,3 +58,9 @@ message.innerHTML = 'We use cookies for improved functionality and analytics.<bu
 
 //header.prepend(message)
 header.append(message)
+//cloning
+//header.append(message.cloneNode(true))
+header.before(message)
+document.querySelector('.btn--close-cookie').addEventListener('click', function() {
+  message.remove()
+})
