@@ -31,6 +31,7 @@ document.addEventListener('keydown', function (e) {
 });
 
 //-------------Cookies
+const header = document.querySelector('.header');
 const message = document.createElement('div')
 message.classList.add('cookie-message')
 //message.textContent = 'We use cookies for improved functionality and analytics.'
@@ -43,6 +44,10 @@ header.append(message)
 header.before(message)
 document.querySelector('.btn--close-cookie').addEventListener('click', function() {
   message.remove()
+//-------------------
+
+
+
 ////////////////////////////////////////////
 /////////////////Aprendendo/////////////////
 ////////////////////////////////////////////
@@ -50,7 +55,6 @@ document.querySelector('.btn--close-cookie').addEventListener('click', function(
 console.log(document.documentElement)
 'console.log(document)'
 
-const header = document.querySelector('.header');
 
 const allSections = document.querySelectorAll('.selection')
 console.log(allSections)
@@ -67,3 +71,43 @@ console.log(document.getElementsByClassName('btn'))
 })
 
 //Styles
+
+message.style.backgroundColor = '#37383d'
+message.style.width = '120%'
+
+//console.log(message.style.backgroundColor) won't work
+console.log(message.style.backgroundColor)
+console.log(getComputedStyle(message).color)
+console.log(getComputedStyle(message).height)
+message.style.height = Number.parseFloat(getComputedStyle(message).height) + 40 + 'px'
+
+//access the styles and can modify them
+//document.documentElement.style.setProperty('--color-primary', 'orangered')
+
+//Attributes
+
+//only reads expected classes 
+const logo = document.querySelector('.nav__logo')
+console.log(logo.alt)
+console.log(logo.getAttribute('src'))
+console.log(logo.src)
+console.log(logo.className)
+
+logo.alt = 'Logo minimalsita'
+// non-standard
+console.log(logo.designer)
+console.log(logo.getAttribute('designer'))
+logo.setAttribute('company', 'Bankist')
+
+const link = document.querySelector('.nav__link--btn')
+console.log(link.href)
+console.log(link.getAttribute('href'))
+
+//data Atributes
+console.log(logo.dataset.verionNumber)
+
+//Classes
+//logo.classList.add()
+//remove toggle contains
+//Don't use. Will ovewrite 
+//logo.className = 'Felix'
