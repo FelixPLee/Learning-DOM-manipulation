@@ -111,3 +111,20 @@ console.log(logo.dataset.verionNumber)
 //remove toggle contains
 //Don't use. Will ovewrite 
 //logo.className = 'Felix'
+
+const btnScrollTo = document.querySelector('.btn--scroll-to')
+const section1 = document.querySelector('#section--1')
+
+btnScrollTo.addEventListener('click', function(e) {
+  const s1coords = section1.getBoundingClientRect()
+  console.log(e.target.getBoundingClientRect())
+
+//valores de scroll do topo e da lateral
+  console.log(window. scrollX, scrollY)
+  console.log(document.documentElement.clientHeight)
+  console.log(document.documentElement.clientWidth)
+  console.log(s1coords.left)
+  console.log(s1coords.top)
+  window.scrollTo(s1coords.left + window.scrollX, s1coords.top + scrollY)
+})
+
