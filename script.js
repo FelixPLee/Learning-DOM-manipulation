@@ -120,11 +120,17 @@ btnScrollTo.addEventListener('click', function(e) {
   console.log(e.target.getBoundingClientRect())
 
 //valores de scroll do topo e da lateral
-  console.log(window. scrollX, scrollY)
-  console.log(document.documentElement.clientHeight)
-  console.log(document.documentElement.clientWidth)
-  console.log(s1coords.left)
-  console.log(s1coords.top)
-  window.scrollTo(s1coords.left + window.scrollX, s1coords.top + scrollY)
+  // console.log(window. scrollX, scrollY)
+  // console.log(document.documentElement.clientHeight)
+  // console.log(document.documentElement.clientWidth)
+  // console.log(s1coords.left)
+  // console.log(s1coords.top)
+  // window.scrollTo({
+  //   left: s1coords.left + window.scrollX,
+  //   top: s1coords.top + scrollY,
+  //   behavior: 'smooth'
+  // })
+  section1.scrollIntoView({behavior: 'smooth'})
+
 })
 
