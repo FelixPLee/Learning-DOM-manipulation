@@ -119,7 +119,7 @@ btnScrollTo.addEventListener('click', function(e) {
   const s1coords = section1.getBoundingClientRect()
   console.log(e.target.getBoundingClientRect())
 
-//valores de scroll do topo e da lateral
+//valores de scroll do topo e da lateral 
   // console.log(window. scrollX, scrollY)
   // console.log(document.documentElement.clientHeight)
   // console.log(document.documentElement.clientWidth)
@@ -133,4 +133,28 @@ btnScrollTo.addEventListener('click', function(e) {
   section1.scrollIntoView({behavior: 'smooth'})
 
 })
+
+// testing event bubbling 
+// const randomInt = (min, max) =>
+//   Math.floor(Math.random() * (max - min +1) + min)
+// const randomColor = () =>
+//   `rgb(${randomInt(0, 255)},${randomInt(0,255)},${randomInt(0,255)})`
+
+// document.querySelector('.nav__link').addEventListener('click', function (e) {
+//   console.log('Link', e.target, e.currentTarget)
+//   this.style.backgroundColor = randomColor()
+//   console.log(this === e.currentTarget)
+
+//   //Stop propagation
+//   //e.stopPropagation()
+// })
+
+// document.querySelector('.nav__links').addEventListener('click', function (e) {console.log('Container')
+//   this.style.backgroundColor = randomColor()  
+// })
+
+// document.querySelector('.nav').addEventListener('click', function (e) {console.log('NAV')
+//   this.style.backgroundColor = randomColor()  
+//   //executing in the first fase
+// },false)
 
