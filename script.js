@@ -77,6 +77,26 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
   }
 })
 
+// Tabbed component
+const tabs = document.querySelectorAll('.operations__tab')
+const tabsContainer = document.querySelector('.operations__tab-container')
+const tabsContent = document.querySelectorAll('.operations__content')
+
+tabsContainer.addEventListener('click', function(e) {
+  const clicked = e.target.closest('.operations__tab')
+  if(!clicked) return;
+
+  tabs.forEach(t => t.classList.remove('operations__tab--active'))
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'))
+
+  //Activate tab
+  clicked.classList.add('operations__tab--active')
+
+  //Activate content area
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`)
+  .classList.add('operations__content--active')
+})
+
 ////////////////////////////////////////////
 /////////////////Aprendendo/////////////////
 ////////////////////////////////////////////
@@ -130,26 +150,26 @@ message.style.height = Number.parseFloat(getComputedStyle(message).height) + 40 
 //Attributes
 
 //only reads expected classes 
-const logo = document.querySelector('.nav__logo')
-console.log(logo.alt)
-console.log(logo.getAttribute('src'))
-console.log(logo.src)
-console.log(logo.className)
+// const logo = document.querySelector('.nav__logo')
+// console.log(logo.alt)
+// console.log(logo.getAttribute('src'))
+// console.log(logo.src)
+// console.log(logo.className)
 
-logo.alt = 'Logo minimalsita'
-// non-standard
-console.log(logo.designer)
-console.log(logo.getAttribute('designer'))
-logo.setAttribute('company', 'Bankist')
+// logo.alt = 'Logo minimalsita'
+// // non-standard
+// console.log(logo.designer)
+// console.log(logo.getAttribute('designer'))
+// logo.setAttribute('company', 'Bankist')
 
-const link = document.querySelector('.nav__link--btn')
-console.log(link.href)
-console.log(link.getAttribute('href'))
+// const link = document.querySelector('.nav__link--btn')
+// console.log(link.href)
+// console.log(link.getAttribute('href'))
 
 
 
-//data Atributes
-console.log(logo.dataset.verionNumber)
+// //data Atributes
+// console.log(logo.dataset.verionNumber)
 
 //Classes
 //logo.classList.add()
