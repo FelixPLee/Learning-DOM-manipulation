@@ -38,6 +38,44 @@ document.addEventListener('keydown', function (e) {
 ///////////////////////////////////////
 // Page navegarion
 
+btnScrollTo.addEventListener('click', function(e) {
+  const s1coords = section1.getBoundingClientRect()
+  console.log(e.target.getBoundingClientRect())
+
+//valores de scroll do topo e da lateral 
+  // console.log(window. scrollX, scrollY)
+  // console.log(document.documentElement.clientHeight)
+  // console.log(document.documentElement.clientWidth)
+  // console.log(s1coords.left)
+  // console.log(s1coords.top)
+  // window.scrollTo({
+  //   left: s1coords.left + window.scrollX,
+  //   top: s1coords.top + scrollY,
+  //   behavior: 'smooth'
+  // })
+  section1.scrollIntoView({behavior: 'smooth'})
+})
+
+//document.querySelectorAll('.nav__link').forEach(function(el) {
+//  el.addEventListener('click', function(e) {
+//    e.preventDefault()
+//    const id = this.getAttribute('href')
+//    console.log(id)
+//    document.querySelector(id).scrollIntoView({behavior: 'smooth'})
+//  })
+//})
+
+// 1. add event listener to comon parent element
+// 2. Dertemine what element originated the event
+
+document.querySelector('.nav__links').addEventListener('click', function(e) {
+  e.preventDefault()
+  if(e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href')
+    console.log(id)
+    document.querySelector(id).scrollIntoView({behavior: 'smooth'})   
+  }
+})
 
 ////////////////////////////////////////////
 /////////////////Aprendendo/////////////////
@@ -108,6 +146,8 @@ const link = document.querySelector('.nav__link--btn')
 console.log(link.href)
 console.log(link.getAttribute('href'))
 
+
+
 //data Atributes
 console.log(logo.dataset.verionNumber)
 
@@ -118,24 +158,6 @@ console.log(logo.dataset.verionNumber)
 //logo.className = 'Felix'
 
 
-btnScrollTo.addEventListener('click', function(e) {
-  const s1coords = section1.getBoundingClientRect()
-  console.log(e.target.getBoundingClientRect())
-
-//valores de scroll do topo e da lateral 
-  // console.log(window. scrollX, scrollY)
-  // console.log(document.documentElement.clientHeight)
-  // console.log(document.documentElement.clientWidth)
-  // console.log(s1coords.left)
-  // console.log(s1coords.top)
-  // window.scrollTo({
-  //   left: s1coords.left + window.scrollX,
-  //   top: s1coords.top + scrollY,
-  //   behavior: 'smooth'
-  // })
-  section1.scrollIntoView({behavior: 'smooth'})
-
-})
 
 // testing event bubbling 
 // const randomInt = (min, max) =>
