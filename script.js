@@ -104,7 +104,7 @@ const handleHover = function (e) {
     const link = e.target
     const siblings = link.closest('.nav').querySelectorAll('.nav__link')
     const logo = link.closest('.nav').querySelector('img')
-
+    
     siblings.forEach(el => {
       if(el !== link) el.style.opacity = this
     })
@@ -117,13 +117,31 @@ nav.addEventListener('mouseover', handleHover.bind(0.5))
 nav.addEventListener('mouseout', handleHover.bind(1))
 
 //Stity nav
-const initialCoords = section1.getBoundingClientRect()
+const navHeight =nav.getBoundingClientRect().height
 
-window.addEventListener('scroll', function () {
-  if(this.window.scrollY > initialCoords.top) nav.
-  classList.add('sticky')
+const stickyNav = function (entries) {
+  const [entry] = entries
+  console.log(entry)
+  if (!entry.isIntersecting) nav.classList.add('sticky')
   else nav.classList.remove('sticky')
+}
+
+const headerObserver = new IntersectionObserver
+(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
 })
+
+headerObserver.observe(header)
+
+// const initialCoords = section1.getBoundingClientRect()
+
+// window.addEventListener('scroll', function () {
+//   if(this.window.scrollY > initialCoords.top) nav.
+//   classList.add('sticky')
+//   else nav.classList.remove('sticky')
+// })
 
 ////////////////////////////////////////////
 /////////////////Aprendendo/////////////////
@@ -163,14 +181,14 @@ window.addEventListener('scroll', function () {
 
 //Styles
 
-message.style.backgroundColor = '#37383d'
-message.style.width = '120%'
+//message.style.backgroundColor = '#37383d'
+//message.style.width = '120%'
 
 //console.log(message.style.backgroundColor) won't work
-console.log(message.style.backgroundColor)
-console.log(getComputedStyle(message).color)
-console.log(getComputedStyle(message).height)
-message.style.height = Number.parseFloat(getComputedStyle(message).height) + 40 + 'px'
+// console.log(message.style.backgroundColor)
+// console.log(getComputedStyle(message).color)
+// console.log(getComputedStyle(message).height)
+// message.style.height = Number.parseFloat(getComputedStyle(message).height) + 40 + 'px'
 
 //access the styles and can modify them
 //document.documentElement.style.setProperty('--color-primary', 'orangered')
@@ -231,3 +249,16 @@ message.style.height = Number.parseFloat(getComputedStyle(message).height) + 40 
 //   //executing in the first fase
 // },false)
 
+///////////Intersection Observer API
+// const obsCallback = function(entries, observer) {
+//   entries.forEach(entry => {console.log(entry)})
+// }
+
+// const obsOptions = {
+//   root: null,
+//   threshold: 0.4
+// }
+
+// const observer = new IntersectionObserver
+// (obsCallback, obsOptions)
+// observer.observe(section1)
